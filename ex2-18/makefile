@@ -11,3 +11,4 @@ all:
 
 clean:
 	rm -f $(TARGET)
+	rm -f matA.txt
