@@ -19,7 +19,7 @@ int main()
     cout<<"A.channels() = "<<A.channels()<<endl;
 
     cout<<"A.step = "<<A.step<<endl;
-    cout<<"A.steop1() = "<<A.step1()<<endl;
+    cout<<"A.step1() = "<<A.step1()<<endl;
     cout<<"A.stepT() = "<<A.stepT()<<endl;
 
     return 0;
