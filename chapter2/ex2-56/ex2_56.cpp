@@ -64,7 +64,7 @@ int main()
     Point *P2[2] = {pts1, pts2};
     for(i = 0; i < contour.size(); i++)
     {
-        for(j = 0; j < contour.size(); j++)
+        for(j = 0; j < contour[i].size(); j++)
         {
             cout<<"P2["<<i<<"]["<<j<<"] = "<<P2[i][j]<<endl;
         }
@@ -94,7 +94,7 @@ int main()
             cout<<"P4["<<i<<"]["<<j<<"] = "<<P4[i][j]<<endl;
         }
     }
-    polylines(dstImage, (const Point**)&P4, npts, 2, true, Scalar(0, 0, 255));
+    polylines(dstImage, (const Point**)P4, npts, 2, true, Scalar(0, 0, 255));
     delete_arr_arr<Point>(P4, contour.size());
 
     imshow("dstImage", dstImage);
