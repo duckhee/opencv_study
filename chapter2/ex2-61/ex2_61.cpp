@@ -20,10 +20,19 @@ int main()
         cout<<"A1 = "<<A<<endl;
 
         //CV_Assert(b >= 0 && b < 3);
+        if(b < 0 || b > 3)
+        {
+            //CV_StsOutOfRange in OpenCV 2.4.13
+            CV_Error_(Error::StsOutOfRange, ("a = %d is out of range.", b));
+        }
+        A.at<uchar>(b) = saturate_cast<uchar>(300);
+        cout<<"A2 = "<<A<<endl;
+        CV_Assert(A.type() == CV_8UC3);
     }catch(cv::Exception& e)
     {
-
+        const char* err_msg = e.what();
+        cout<<"Exception("<<e.code<<"):"<<err_msg<<endl;
     }
 
-
+    return 0;
 }
