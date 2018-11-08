@@ -44,5 +44,5 @@ void onMouse(int event, int x, int y, int flags, void* param)
 
     imshow("dstImage", image);
 
-    return 0;
+    
 }
