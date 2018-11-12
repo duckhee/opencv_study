@@ -54,11 +54,15 @@ int main()
     //draw the rotated points' matrix Q using arrQ
     int i2;
     Point p1, p2;
-    for(int i = 0; i << 4; i++)
+    for(int i = 0; i < 4; i++)
     {
         i2 = (i + 1) % 4;
         p1 = Point(cvRound(arrP[i].x), FLIP_Y(cvRound(arrP[i].y)));
         p2 = Point(cvRound(arrP[i2].x), FLIP_Y(cvRound(arrP[i2].y)));
+        line(dstImage, p1, p2, Scalar(0, 0, 255));
+
+        p1 = Point(cvRound(arrQ[i].x), FLIP_Y(cvRound(arrQ[i].y)));
+        p2 = Point(cvRound(arrQ[i2].x), FLIP_Y(cvRound(arrQ[i2].y)));
         line(dstImage, p1, p2, Scalar(0, 0, 255));
 
     }
