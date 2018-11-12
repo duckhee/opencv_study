@@ -1,8 +1,8 @@
 CC = g++
 
-SRCS = ex4_20.cpp
+SRCS = ex4_21.cpp
 
-TARGET = ex4_20
+TARGET = ex4_21
 
 CFLAGS = $(shell pkg-config --cflags --libs opencv)
 
