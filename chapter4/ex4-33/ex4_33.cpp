@@ -29,7 +29,7 @@ int main()
 
     Mat eVals2;
     Mat eVects2;
-    eigen(cX, eVals2, eVects2);
+    eigen(cX2, eVals2, eVects2);
     cout<<"eVals2 = \n"<<eVals2<<endl;
     cout<<"eVects2 = \n"<<eVects2<<endl<<endl;
 
