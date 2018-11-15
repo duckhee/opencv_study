@@ -16,12 +16,12 @@ int main()
 
     int histSize[] = {4};
     float valueRange[] = {0, 8};
-    const float* rangess[] = {valueRange};
+    const float* ranges[] = {valueRange};
     int channels[] = {0};
     int dims = 1;
 
     Mat hist;
-    calcHist(&A, 1, channels, Mat(), hist, dims, histSize, rangess, true);
+    calcHist(&A, 1, channels, Mat(), hist, dims, histSize, ranges, true);
     cout<<"hist = "<<hist<<endl;
     
     Mat pdf;
