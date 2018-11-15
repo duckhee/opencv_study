@@ -5,36 +5,28 @@ using namespace std;
 
 int main()
 {
-    Mat srcImage = imread("../lena.jpg", IMREAD_GRAYSCALE);
-    if(srcImage.empty())
-    {
-        return -1;
-    }
+    uchar dataA[16] = {
+        0, 0, 0, 0,
+        1, 1, 3, 5,
+        6, 1, 1, 3,
+        4, 3, 1, 7
+    };
+    Mat A(4, 4, CV_8U, dataA);
+    cout<<"A = "<<A<<endl;
+
+    int histSize[] = {4};
+    float valueRange[] = {0, 8};
+    const float* rangess[] = {valueRange};
+    int channels[] = {0};
+    int dims = 1;
+
+    Mat hist;
+    calcHist(&A, 1, channels, Mat(), hist, dims, histSize, rangess, true);
+    cout<<"hist = "<<hist<<endl;
     
-    double minVal, maxVal;
-    Point minLoc, maxLoc;
-
-    minMaxLoc(srcImage, &minVal, &maxVal, &minLoc, &maxLoc);
-    cout<<"In srcImage"<<endl;
-    cout<<"minVal = "<<minVal<<endl;
-    cout<<"maxVal = "<<maxVal<<endl;
-    cout<<"minLoc = "<<minLoc<<endl;
-    cout<<"maxLoc = "<<maxLoc<<endl;
-
-    Mat dstImage;
-    double scale = 100.0/(maxVal -minVal);
-    srcImage.convertTo(dstImage, -1, scale, -scale * minVal);
-
-    minMaxLoc(dstImage, &minVal, &maxVal, &minLoc, &maxLoc);
-    cout<<"In dstImage"<<endl;
-    cout<<"minVal = "<<minVal<<endl;
-    cout<<"maxVal = "<<maxVal<<endl;
-    cout<<"minLoc = "<<minLoc<<endl;
-    cout<<"maxLoc = "<<maxLoc<<endl;
-
-    imshow("dstImage", dstImage);
-    waitKey();
-
+    Mat pdf;
+    normalize(hist, pdf, 1, 0, NORM_L1);
+    cout<<"pdf = "<<pdf<<endl;
     return 0;
 
 }
