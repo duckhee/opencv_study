@@ -3,7 +3,7 @@
 int main()
 {
     int coin_no = 20;
-    String fname = format("./image/%2d.png", coin_no);
+    String fname = format("../image/%2d.png", coin_no);
     Mat image = imread(fname, 1);
     /*
     if(image.empty())
