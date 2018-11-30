@@ -12,8 +12,8 @@ void onMouse(int event, int x, int y, int flags, void *params);
 
 int main()
 {
-	Mat srcImage = imread("../lena.jpg", IMREAD_GRAYSCALE);
-	//Mat srcImage = imread("../lena.jpg");
+	//Mat srcImage = imread("../lena.jpg", IMREAD_GRAYSCALE);
+	Mat srcImage = imread("../lena.jpg");
 	if(srcImage.empty())
 	{
 		printf("no image\r\n");
@@ -27,7 +27,7 @@ int main()
 	DATA data = {dstImage, mask};
 	setMouseCallback("dstImage", onMouse, (void *)&data);
 
-	double inpainRadius = 5;
+	double inpaintRadius = 5;
 	//int flags = INPAINT_NS;
 	int flags = INPAINT_TELEA;
 
@@ -47,7 +47,7 @@ int main()
 				imshow("dstImage", dstImage);
 			break;
 			case ' ':
-				inpaint(dstImage, mask, dstImage, inpainRadius, flags);
+				inpaint(dstImage, mask, dstImage, inpaintRadius, flags);
 				imshow("dstImage", dstImage);
 			break;
 		}
@@ -59,7 +59,7 @@ int main()
 void onMouse(int event, int x, int y, int flags, void *params)
 {
 	DATA *data = (DATA *)params;
-	Mat mask = data->image;
+	Mat mask = data->mask;
 	Mat dstImage = data->image;
 	switch(event)
 	{
