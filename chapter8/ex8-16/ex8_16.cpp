@@ -8,7 +8,7 @@ vector<Rect> PyrSegmentation(Mat &src, Mat &dst, int level, int th11, int th2);
 
 int main()
 {
-	Mat srcImage = imread("segmentTest.jpg", IMREAD_GRAYSCALE);
+	Mat srcImage = imread("../segmentTest.jpg", IMREAD_GRAYSCALE);
 	if(srcImage.empty())
 	{
 		printf("segmentTest not image\r\n");
